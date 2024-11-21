@@ -6,7 +6,7 @@ using youtube.Domain.Entities;
 
 namespace youtube.web.Controllers
 {
-    [Authorize]
+   
     public class VideoController : Controller
     {
 
@@ -37,13 +37,14 @@ namespace youtube.web.Controllers
             return PartialView("_uservideos", videos);
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
 
-        
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Add(string title, string description, IFormFile videoFile, IFormFile imageFile)
         {

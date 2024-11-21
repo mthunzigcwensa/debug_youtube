@@ -9,11 +9,11 @@
 
     <div class="main-content">
         <div class="channel-banner">
-            <img src="@Model.ChannelData.BannerImageUrl" alt="Channel Banner" class="banner-img">
+            <img src="@(!string.IsNullOrEmpty(Model.ChannelData.BannerImageUrl) ? Model.ChannelData.BannerImageUrl : "https://images.pexels.com/photos/1260727/pexels-photo-1260727.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")" alt="Channel Banner" class="banner-img">
         </div>
 
         <div class="profile-container">
-            <img src="@Model.ChannelData.ProfilePictureUrl" alt="Profile Image" class="profile-img">
+            <img src="@(!string.IsNullOrEmpty(Model.ChannelData.ProfilePictureUrl) ? Model.ChannelData.ProfilePictureUrl : "https://cdn-icons-png.flaticon.com/512/847/847969.png")" alt="Profile Image" class="profile-img">
 
             <div class="profile-text">
                 <h1 class="channel-name">@Model.ChannelData.Name</h1>

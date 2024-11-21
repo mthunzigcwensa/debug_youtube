@@ -73,7 +73,7 @@ namespace youtube.web.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Video");
         }
 
         public IActionResult AccessDenied()
@@ -136,7 +136,7 @@ namespace youtube.web.Controllers
                     TempData["success"] = "acccount created...pease login";
                     if (string.IsNullOrEmpty(registerVM.RedirectUrl))
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Video");
                     }
                     else
                     {
@@ -173,13 +173,13 @@ namespace youtube.web.Controllers
                     TempData["success"] = "YOU HAVE LOGGED IN";
                     if (await _userManager.IsInRoleAsync(user, SD.Role_Admin))
                     {
-                        return RedirectToAction("index", "home");
+                        return RedirectToAction("index", "Video");
                     }
                     else
                     {
                         if (string.IsNullOrEmpty(loginVM.RedirectUrl))
                         {
-                            return RedirectToAction("index", "home");
+                            return RedirectToAction("index", "Video");
                         }
                         else
                         {
